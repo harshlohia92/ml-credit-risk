@@ -2,12 +2,12 @@ import joblib
 import numpy as np
 import pandas as pd
 from sklearn.preprocessing import MinMaxScaler
+import os
 
-# Path to the saved model and its components
-MODEL_PATH = "model_data.joblib"   # since it's in the same folder as prediction_helper.py
+
+MODEL_PATH = os.path.join(os.path.dirname(__file__), "model_data.joblib")
 model_data = joblib.load(MODEL_PATH)
-#model_data = joblib.load(MODEL_PATH)
-# Load the model and its components
+
 model = model_data['model']
 scaler = model_data['scaler']
 features = model_data['features']
